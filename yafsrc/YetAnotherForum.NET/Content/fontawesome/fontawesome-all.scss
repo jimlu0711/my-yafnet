@@ -1,0 +1,19 @@
+﻿/*!
+ * Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ * Copyright 2023 Fonticons, Inc.
+ */
+ 
+@import "fontawesome";
+@import "solid";
+@import "brands";
+@import "regular";
+
+/* Extensions */
+.fa-badge {
+    position: absolute;
+    right: 16%;
+    bottom: 15%;
+    font-size: 70%;
+    text-shadow: -0.12ex 0 var(--bs-light-border-subtle), -0.1ex -0.1ex var(--bs-light-border-subtle), 0 -0.12ex var(--bs-light-border-subtle), 0.1ex -0.1ex var(--bs-light-border-subtle), 0.12ex 0 var(--bs-light-border-subtle), 0.1ex 0.1ex var(--bs-light-border-subtle), 0 0.12ex var(--bs-light-border-subtle), -0.1ex 0.1ex var(--bs-light-border-subtle);
+}
