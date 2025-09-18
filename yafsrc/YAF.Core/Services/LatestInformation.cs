@@ -57,31 +57,32 @@ public class LatestInformation : IHaveServiceLocator, ILatestInformation
     /// <returns>Returns the LatestVersionInformation</returns>
     public dynamic GetLatestVersion()
     {
-        dynamic version = new ExpandoObject();
+        var version = new ExpandoObject() as dynamic;
+        //dynamic version = new ExpandoObject();
 
-        try
-        {
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault |
-                                                   SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
+        //try
+        //{
+        //    ServicePointManager.SecurityProtocol = SecurityProtocolType.SystemDefault |
+        //                                           SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
 
-            var test = "https://api.github.com/repos/YAFNET/YAFNET/releases/latest".GetJsonFromUrl(
-                x => x.UserAgent = "YAF.NET");
+        //    var test = "https://api.github.com/repos/YAFNET/YAFNET/releases/latest".GetJsonFromUrl(
+        //        x => x.UserAgent = "YAF.NET");
 
-            var json = DynamicJson.Deserialize(test);
+        //    var json = DynamicJson.Deserialize(test);
 
-            var tagName = (string)json.tag_name;
-            var date = DateTime.SpecifyKind(
-                DateTime.Parse(json.published_at),
-                DateTimeKind.Unspecified);
+        //    var tagName = (string)json.tag_name;
+        //    var date = DateTime.SpecifyKind(
+        //        DateTime.Parse(json.published_at),
+        //        DateTimeKind.Unspecified);
 
-            version.UpgradeUrl = "https://yetanotherforum.net/download";
-            version.VersionDate = date;
-            version.Version = tagName.Replace("v", string.Empty);
-        }
-        catch (Exception x)
-        {
-            this.Get<ILoggerService>().Error(x, "Exception In LatestInformationService");
-        }
+        //    version.UpgradeUrl = "https://yetanotherforum.net/download";
+        //    version.VersionDate = date;
+        //    version.Version = tagName.Replace("v", string.Empty);
+        //}
+        //catch (Exception x)
+        //{
+        //    this.Get<ILoggerService>().Error(x, "Exception In LatestInformationService");
+        //}
 
         return version;
     }
